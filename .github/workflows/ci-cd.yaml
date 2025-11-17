@@ -1,7 +1,7 @@
 ﻿name: CI/CD Test
 
 on:
-  workflows_dispatch:
+  workflow_dispatch:
   push:
     branches:
       - master
@@ -31,7 +31,7 @@ jobs:
         run: dotnet restore ${{ env.SOLUTION_PATH }}
     
       - name: Build
-        runs: dotnet build ${{ env.SOLUTION_PATH }} --configuration Release --no-restore
+        run: dotnet build ${{ env.SOLUTION_PATH }} --configuration Release --no-restore
         
       - name: Publish
         run: dotnet publish ${{ env.API_PROJECT_PATH }} --configuration Release --no-restore --no-build --property:PublishDir=${{ env.PUBLISH_DIR }}
