@@ -6,7 +6,7 @@ builder.Services.AddOpenApi(options =>
 {
     options.AddDocumentTransformer((document, context, cancellationToken) =>
     {
-        document.Info.Title = "CicdTest Uladzislau Paulovich";
+        document.Info.Title = "CicdTest Uladzislau Paulovich 1";
         
         return Task.CompletedTask;
     });
