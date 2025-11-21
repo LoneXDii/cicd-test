@@ -5,6 +5,9 @@ on:
   push:
     branches:
       - master
+  pull_request:
+    branches:
+      - master
         
 env:
   AZURE_WEBAPP_NAME: uladzislau-paulovich-cicd-testapp
@@ -46,6 +49,7 @@ jobs:
     name: Deploy
     runs-on: windows-latest
     needs: [build]
+    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
     
     steps:
       - name: Download Artifact
